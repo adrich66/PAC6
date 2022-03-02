@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+<div class="w3-panel w3-padding-32">
+<h1>Spring Boot Authors Example</h1>
+<h3>table of static authors</h3>
+			
+		<table class="w3-table-all w3-hoverable" >
+			<tr th:each="author:${authorsfromController}">
+									
+			
+				<td th:text="${author.name}"></td>
+				<td th:text="${author.country}"></td>
+				<td th:text="${author.dob}"></td>
+				<td th:text="${author.qtyBooks}"></td>
+				<td th:text="${author.alive}"></td>
+				<td th:text="${author.authorID}"></td>
+				
+				<td> <a th:href ="@{deleteAuthor(titleFromView=${author.name})}"
+				class="w3-button w3-red">  Delete this author </a> </td>
+				
+				<td> <a th:href ="@{updateAuthor(titleFromView=${author.name})}"
+				class="w3-button w3-cyan">  Update this author </a> </td>
+				
+			</tr>
+		</table>
+
+<p>
+
+ <a th:href="@{/newAuthor}" class="w3-button w3-blue">Add new author</a>
+</p>
+</div>			
+
+</html>
